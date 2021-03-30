@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="reports_activos_fijos">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <t t-foreach="docs" t-as="doc">
+                       
+                            <table width="50%" >
+                                <tr >
+                                    <td style="border-left: 1px solid black;border-top: 1px solid black;" class="text-center">
+                                      <strong>Activo Fijo:</strong>
+                                    </td>
+                                    <td style="border-right: 1px solid black;border-top: 1px solid black;">
+                                      <span t-field="doc.product_id.name"/>
+                                    </td>
+                                </tr>                          
+                                <tr >
+                                    <td style="border-left: 1px solid black;border-top: 1px solid black;" class="text-center">
+                                      <strong>Responsable:</strong>
+                                    </td>
+                                    <td style="border-right: 1px solid black;border-top: 1px solid black;">
+                                      <span t-field="doc.partner_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr >
+                                    <td style="border-left: 1px solid black;" class="text-center">
+                                      <strong>Ubicacion:</strong>
+                                    </td>
+                                    <td style="border-right: 1px solid black;">
+                                      <span t-field="doc.property_stock_inventory_fixed_active.name"/>
+                                    </td>
+                                </tr>
+                                <tr >
+                                    <td style="border-left: 1px solid black;" class="text-center">
+                                      <strong>Descripcion:</strong>
+                                    </td>
+                                    <td style="border-right: 1px solid black;">
+                                      <span t-field="doc.note"/>
+                                    </td>
+                                </tr>
+                                <tr >
+                                    <td style="border-left: 1px solid black;border-bottom: 1px solid black;" class="text-center">
+                                    <img t-if="doc.barcode" t-att-src="'data:image/png;base64,%s' % to_text(doc.image_barcode)" style="width:150px;height:150px;"/><br/><span>&amp;nbsp;&amp;nbsp;</span><span>&amp;nbsp;&amp;nbsp;</span>
+                                    <span t-field="doc.barcode" style="font-size: 9px;"/>
+                                    </td>
+                                    <td style="border-right: 1px solid black;border-bottom: 1px solid black;">
+                                     <img t-if="doc.barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', doc.barcode, 600, 150)" style="width:100%;height:20%;"/><br/><span>&amp;nbsp;&amp;nbsp;</span><span>&amp;nbsp;&amp;nbsp;</span>
+                                    <span t-field="doc.barcode" style="font-size: 9px;"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                      
+                    </t>
+                </div>
+            </t>
+        </template>
+
+         <report
+            id="report_activos_fijos"
+            string="Activos Fijos"
+            model="account.asset"
+            report_type="qweb-pdf"
+            name="fixed_assets.reports_activos_fijos"
+            file="fixed_assets.reports_activos_fijos"
+            print_report_name="'Activos Fijos - %s' % (object.name)"
+        />
+
+    </data>
+</odoo>

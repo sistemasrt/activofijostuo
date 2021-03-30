@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_asset_wizard" model="ir.ui.view">
+        <field name="name">Activos fijos</field>
+        <field name="model">account.asset.filter.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Activos fijos">
+                <group>
+                   <p>Estas por listar los contactos que tienen un o más Activos Fijos a su cargo!</p>
+                </group>
+               
+               
+                <footer>
+                    <button name="filter_account_asset" string="Aceptar" type="object" class="oe_highlight" />
+                    or
+                    <button string="Cancelar" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="id_wizard_activos_fijos" model="ir.actions.act_window">
+            <field name="name">Activos Fijos</field>
+            <field name="res_model">account.asset.filter.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_account_asset_wizard"/>
+            <field name="target">new</field>
+    </record>
+     <menuitem id="menu_account_asset" 
+        name="Activos Fijos" 
+        parent="contacts.menu_contacts"
+        action="id_wizard_activos_fijos"
+        sequence="595" 
+       />
+</odoo>
