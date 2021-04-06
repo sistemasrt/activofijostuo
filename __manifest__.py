@@ -4,7 +4,8 @@
 
     'summary': """""",
 
-    'description': "Relación Activos Fijos, Mantenimiento y Contactos""
+    'description': """
+        Relacion Activos Fijos, Mantenimiento y Contactos
     """,
 
     'author': "Victor Soto by Tuodoo",
