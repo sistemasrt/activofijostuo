@@ -54,6 +54,10 @@ class AccountAsset(models.Model):
         string='Descripción',
     )
 
+    real_value = fields.Float(
+        string='Valor Real',
+    )
+
     @api.model
     def create(self, vals):
         if vals.get('name', 'New') == 'New':
