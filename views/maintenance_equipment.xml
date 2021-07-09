@@ -30,5 +30,15 @@
             </xpath>
         </field>
     </record>
+    <record id="maintenance_equipment_view_tr_search" model="ir.ui.view">
+            <field name="name">res.partner.search.rt.inherit</field>
+            <field name="model">maintenance.equipment</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='Equipment']" position="after">                   
+                   <field name="x_studio_nombre_del_activo"/>
+                </xpath>
+            </field>
+        </record>
   </data>
 </odoo>
