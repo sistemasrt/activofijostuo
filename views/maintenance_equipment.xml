@@ -35,7 +35,7 @@
             <field name="model">maintenance.equipment</field>
             <field name="inherit_id" ref="maintenance.hr_equipment_view_search"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='Equipment']" position="after">                   
+                <xpath expr="//field[@name='name']" position="after">                   
                    <field name="x_studio_nombre_del_activo"/>
                 </xpath>
             </field>
