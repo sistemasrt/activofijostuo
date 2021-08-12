@@ -31,6 +31,16 @@
            
         </field>
     </record>
+    <record model="ir.ui.view" id="account_assets_search_form_inherit">
+    <field name="name">account.assets.search.form.inherit</field>
+    <field name="model">account.asset</field>
+    <field name="inherit_id" ref="account_asset.view_account_asset_search"/>
+    <field name="arch" type="xml">
+      <xpath expr="//search" position="inside">        
+          <field string="Nombre" name="x_studio_nombre"/>
+      </xpath>
+    </field>
+  </record>
     <record id="account_assets_list_inherit" model="ir.ui.view">
             <field name="name">account.asset.inherit.list</field>
             <field name="model">account.asset</field>
